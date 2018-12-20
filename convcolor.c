@@ -34,10 +34,6 @@ int* hsl_to_rgb(double h, double s, double l) {
 int main(int argc, char** argv) {
   // Red goes down from up from 16 to 196
   // Green is which group of 6 from 
-  if (argc != 4) {
-    printf("Fix your args!\n");
-    return 1;
-  }
   double s = 1, l = 0.5;
   /*sscanf(argv[1], "%lf", &h);
   sscanf(argv[2], "%lf", &s);
@@ -53,4 +49,6 @@ int main(int argc, char** argv) {
     }
     printf(" ");
   }
+
+  return EXIT_SUCCESS;
 }
