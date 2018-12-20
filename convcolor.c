@@ -32,23 +32,15 @@ int* hsl_to_rgb(double h, double s, double l) {
 }
 
 int main(int argc, char** argv) {
-  // Red goes down from up from 16 to 196
-  // Green is which group of 6 from 
-  double s = 1, l = 0.5;
-  /*sscanf(argv[1], "%lf", &h);
-  sscanf(argv[2], "%lf", &s);
-  sscanf(argv[3], "%lf", &l);*/
-  int arglen;
-  for (int anum = 1; anum < argc; anum++ ) {
-    arglen = strlen(argv[anum]);
-    for (int i = 0; i < arglen; i++) {
-      int* rgb = hsl_to_rgb( i * (1.0 / arglen), s, l );
-      int color = convColorRGB(rgb[0], rgb[1], rgb[2]);
-      free(rgb);
-      printf("\x1B[38;5;%dm%c",color, argv[anum][i]);
-    }
-    printf(" ");
+  double h = 0, s = 1, l = 0.5;
+  char cchar;
+  
+  while ( (cchar = getchar()) && cchar != EOF ) {
+    int* rgb = hsl_to_rgb( h, s, l );
+    int color = convColorRGB(rgb[0], rgb[1], rgb[2]);
+    free(rgb);
+    printf("\x1B[38;5;%dm%c",color, cchar);
+    h = h > 1 ? 0 : h + (1.0 / 25);
   }
-
   return EXIT_SUCCESS;
 }
