@@ -8,7 +8,6 @@ int convColorRGB(int r, int g, int b) {
   int green = g / 85;
   int blue = b / 85;
 
-  //printf("Got colors:\n\tred: %d\n\tgreen: %d\n\tblue: %d\n", r, g, b);
   return 16 + (red * 36) + (green * 6) + blue;
 }
 
@@ -31,7 +30,7 @@ int* hsl_to_rgb(double h, double s, double l) {
   return rgb;
 }
 
-int main(int argc, char** argv) {
+int main() {
   double h = 0, s = 1, l = 0.5;
   char cchar;
   
