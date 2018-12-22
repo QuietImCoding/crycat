@@ -41,5 +41,6 @@ int main() {
     printf("\x1B[38;5;%dm%c",color, cchar);
     h = h > 1 ? 0 : h + (1.0 / 25);
   }
+  printf("\x1B[30m");
   return EXIT_SUCCESS;
 }
